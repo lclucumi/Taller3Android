@@ -37,7 +37,7 @@ import com.google.android.gms.common.api.ResultCallback;
 public class Index extends AppCompatActivity {
 
     EditText edData,etCount;
-    Button colorear,btnContar;
+    Button colorear,btnContar, btnInstanciaFirebase;
     RadioGroup grupoRadio;
     RadioButton rbtnContar,rbtnColorear,rbtnActividades;
     int contador=0;
@@ -76,6 +76,8 @@ public class Index extends AppCompatActivity {
         colorear.setVisibility(View.INVISIBLE);
         btnContar=findViewById(R.id.btnContar);
         btnContar.setVisibility(View.INVISIBLE);
+        btnInstanciaFirebase = findViewById(R.id.btnFirebase);
+        btnInstanciaFirebase.setBackgroundColor(getResources().getColor(R.color.firebase_color));
 
         //RadioGroup
         grupoRadio = findViewById(R.id.grupoRadio);
@@ -180,6 +182,18 @@ public class Index extends AppCompatActivity {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         contador= savedInstanceState.getInt("contador");
+    }
+
+    public void open_activity_firebase(View view) {
+        Bundle data = new Bundle();
+        Bundle dataReceive = getIntent().getExtras();
+
+        Intent ir = new Intent(getApplicationContext(), FirebaseActivity.class);
+        ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TOP | ir.FLAG_ACTIVITY_CLEAR_TASK);
+        data.putString("userName", dataReceive.getString("userName"));
+        data.putString("passwd",dataReceive.getString("passwd"));
+        ir.putExtras(data);
+        startActivity(ir);
     }
 
     class Colorear extends AsyncTask<Void,Void,Void>{ // Parametros, Progreso, Resultados

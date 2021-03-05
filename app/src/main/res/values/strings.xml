@@ -17,4 +17,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="explorar_aplicacion">Explorar Aplicación</string>
     <string name="Memes">Memes</string>
+    <string name="instacia_firebase">Instancia Firebase</string>
+    <string name="instancia_firebase">Instancia Firebase</string>
+    <string name="title_firebase">Firebase Realtime</string>
+    <string name="set_data_to_firebase">Set to firebase</string>
+    <string name="show_data">Ver último mensaje</string>
 </resources>

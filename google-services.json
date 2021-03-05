@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "155098047812",
+    "firebase_url": "https://taller3-android-default-rtdb.firebaseio.com",
+    "project_id": "taller3-android",
+    "storage_bucket": "taller3-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155098047812:android:4b112205e55dc702dd6311",
+        "android_client_info": {
+          "package_name": "com.example.univalle20202"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155098047812-2bs0v3vvtehnaps91md6td845co3p90r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAao-J7abm-UCDi5S9TBALNH33yWbAcy1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "155098047812-2bs0v3vvtehnaps91md6td845co3p90r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
