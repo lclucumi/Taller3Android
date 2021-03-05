@@ -1,4 +1,4 @@
-## Taller 2 Android
+## Taller 3 Android
 
 ### Integrantes del grupo
 - Luz Carime Lucumí Hernández (@lclucumi)
