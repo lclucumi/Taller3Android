@@ -58,13 +58,17 @@ public class FirebaseActivity extends AppCompatActivity {
     public void PushFirebaseRealtime(View view) {
         String message_description = etMessageDescription.getText().toString();
         String receiver = etReceiver.getText().toString();
-        Message messages = new Message(message_description, receiver);
-        mDatabase.child("last_message").child(username).setValue(messages);
+        if(message_description.equals("") || receiver.equals("")){
+            Toast.makeText(this, "Llene todos los campos", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Message messages = new Message(message_description, receiver);
+            mDatabase.child("last_message").child(username).setValue(messages);
 
-        Toast.makeText(getApplicationContext(), "Instanciado en firebase exitosamente", Toast.LENGTH_SHORT).show();
-        etMessageDescription.setText("");
-        etReceiver.setText("");
-
+            Toast.makeText(getApplicationContext(), "Instanciado en firebase exitosamente", Toast.LENGTH_SHORT).show();
+            etMessageDescription.setText("");
+            etReceiver.setText("");
+        }
     }
 
     public void getMessageFirebase(View view) {
