@@ -20,6 +20,7 @@
     <string name="instacia_firebase">Instancia Firebase</string>
     <string name="instancia_firebase">Instancia Firebase</string>
     <string name="title_firebase">Firebase Realtime</string>
-    <string name="set_data_to_firebase">Set to firebase</string>
+    <string name="set_data_to_firebase">Guardar</string>
     <string name="show_data">Ver último mensaje</string>
+    <string name="get_data_firebase">Último mensaje</string>
 </resources>

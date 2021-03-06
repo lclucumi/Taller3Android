@@ -55,4 +55,14 @@
         android:onClick="PushFirebaseRealtime"
         android:text="@string/set_data_to_firebase"/>
 
+    <Button
+        android:id="@+id/btnGetData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
+        android:textColor="@color/black"
+        android:onClick="getMessageFirebase"
+        android:text="@string/get_data_firebase"/>
+
 </LinearLayout>

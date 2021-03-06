@@ -1,10 +1,14 @@
 package com.example.univalle20202;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,12 +17,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FirebaseActivity extends AppCompatActivity {
 
-    Button btnPushFirebaseRealtime;
+
+    Button btnPushFirebaseRealtime, btnGetDataFirebase;
     EditText etMessageDescription, etReceiver;
     String username, password;
     private DatabaseReference mDatabase;
@@ -30,7 +38,9 @@ public class FirebaseActivity extends AppCompatActivity {
 
         // Enlazamiento
         btnPushFirebaseRealtime = findViewById(R.id.btnPushFirebaseRealtime);
+        btnGetDataFirebase = findViewById(R.id.btnGetData);
         btnPushFirebaseRealtime.setBackgroundColor(getResources().getColor(R.color.firebase_color)); // set color button
+        btnGetDataFirebase.setBackgroundColor(getResources().getColor(R.color.firebase_color));
 
         etMessageDescription = findViewById(R.id.editTextMessage);
         etReceiver = findViewById(R.id.editTextTo);
@@ -54,7 +64,32 @@ public class FirebaseActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Instanciado en firebase exitosamente", Toast.LENGTH_SHORT).show();
         etMessageDescription.setText("");
         etReceiver.setText("");
+
     }
+
+    public void getMessageFirebase(View view) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+
+        mDatabase.child("last_message").child(username).child("message_description").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>(){
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    builder.setTitle("Último mensaje");
+                    builder.setMessage(String.valueOf(task.getResult().getValue()));
+                    builder.setPositiveButton("Aceptar", null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+            }
+        });
+    }
+
 
     public class Message {
 
@@ -71,6 +106,9 @@ public class FirebaseActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
