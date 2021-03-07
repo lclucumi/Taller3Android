@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.univalle20202.databinding.ActivityLoginBinding;
 import com.example.univalle20202.services.OnlineConnection;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -33,6 +34,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class Index extends AppCompatActivity {
 
@@ -42,6 +45,10 @@ public class Index extends AppCompatActivity {
     RadioButton rbtnContar,rbtnColorear,rbtnActividades;
     int contador=0;
     Colorear objColorear;
+
+    private static final String TAG = "Index";
+
+    private AdView mAdView;
 
     //Google
     GoogleApiClient googleApiClient;
@@ -64,6 +71,11 @@ public class Index extends AppCompatActivity {
         startService(i);
 
         setContentView(R.layout.activity_index);
+        //Publicidad con AdMod
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         //Lanzamiento
         //editText
         edData= findViewById(R.id.etData);

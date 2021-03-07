@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.app.ActivityManager;
@@ -37,7 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     VideoView video;
     String username, password;
     Bundle dataReceive;
-     Snackbar mySnackbar;
+    Snackbar mySnackbar;
+
+    private static final String TAG = "MainActivity";
+
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startService(i);
 
         setContentView(R.layout.activity_main);
+
+        //Publicidad con AdMod
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         //Inicialización de la clase VideoView
         video=(VideoView) findViewById(R.id.videoView);
