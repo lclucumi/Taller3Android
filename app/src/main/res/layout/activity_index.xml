@@ -21,6 +21,16 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <RadioGroup
         android:id="@+id/grupoRadio"
         android:layout_width="match_parent"
@@ -102,12 +112,24 @@
             android:text="Colorear"/>
     </RadioGroup>
 
+
+    <Button
+        android:id="@+id/btnInveSoft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/white"
+        android:onClick="open_activity_inveSoft"
+        android:text="DB InveSoft"/>
+
+
     <Button
         android:id="@+id/btnFirebase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="@color/black"
         android:onClick="open_activity_firebase"
         android:text="@string/instancia_firebase"/>
@@ -116,9 +138,14 @@
         android:id="@+id/btnExplorar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:onClick="explorar"
         android:text="@string/explorar_aplicacion"/>
+
+    </LinearLayout>
+
+</ScrollView>
+
 
 </LinearLayout>

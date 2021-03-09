@@ -40,7 +40,7 @@ import com.google.android.gms.ads.AdView;
 public class Index extends AppCompatActivity {
 
     EditText edData,etCount;
-    Button colorear,btnContar, btnInstanciaFirebase;
+    Button colorear,btnContar, btnInstanciaFirebase, btnInveSoft;
     RadioGroup grupoRadio;
     RadioButton rbtnContar,rbtnColorear,rbtnActividades;
     int contador=0;
@@ -90,6 +90,9 @@ public class Index extends AppCompatActivity {
         btnContar.setVisibility(View.INVISIBLE);
         btnInstanciaFirebase = findViewById(R.id.btnFirebase);
         btnInstanciaFirebase.setBackgroundColor(getResources().getColor(R.color.firebase_color));
+
+        btnInveSoft = findViewById(R.id.btnInveSoft);
+        btnInveSoft.setBackgroundColor(getResources().getColor(R.color.teal_700));
 
         //RadioGroup
         grupoRadio = findViewById(R.id.grupoRadio);
@@ -201,6 +204,18 @@ public class Index extends AppCompatActivity {
         Bundle dataReceive = getIntent().getExtras();
 
         Intent ir = new Intent(getApplicationContext(), FirebaseActivity.class);
+        ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TOP | ir.FLAG_ACTIVITY_CLEAR_TASK);
+        data.putString("userName", dataReceive.getString("userName"));
+        data.putString("passwd",dataReceive.getString("passwd"));
+        ir.putExtras(data);
+        startActivity(ir);
+    }
+
+    public void open_activity_inveSoft(View view) {
+        Bundle data = new Bundle();
+        Bundle dataReceive = getIntent().getExtras();
+
+        Intent ir = new Intent(getApplicationContext(), InveSoftAct.class);
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TOP | ir.FLAG_ACTIVITY_CLEAR_TASK);
         data.putString("userName", dataReceive.getString("userName"));
         data.putString("passwd",dataReceive.getString("passwd"));
