@@ -7,7 +7,10 @@
 
 ### Conexión de App a instancia propia de Firebase
 ![](GIFFireBase.gif)
-<img align="right" width="800" height="900" src="FirebaseEvidence.jpeg">
+
+<p align="center">
+  <img src="FirebaseEvidence.jpeg">
+</p>
 
 ### Incorporación de publicidad en la App con ID de pruebas
 ![](GIFPublicidad.gif)
