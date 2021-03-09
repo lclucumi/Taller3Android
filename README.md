@@ -6,7 +6,8 @@
 - Luis Eduardo Albarán Vélez (@luisalvaran17)
 
 ### Conexión de App a instancia propia de Firebase
-![]()
+![](GIFFireBase.gif)
+<img align="right" src="FirebaseEvidence.jpeg">
 
 ### Incorporación de publicidad en la App con ID de pruebas
 ![](GIFPublicidad.gif)
