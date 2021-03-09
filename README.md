@@ -12,4 +12,4 @@
 ![](GIFPublicidad.gif)
 
 ### Consulta en API y registros
-![]()
+![](GIFAPI.gif)
